@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Smart Login</title>
+  </head>
+  <body>
+    <section id="signUpSec" class="py-5">
+      <div class="container">
+        <form action="" class="w-75 m-auto p-5 shadow-lg">
+          <h1 class="text-center">Smart Login System</h1>
+          <div class="row">
+            <div class="col-md-12">
+              <div>
+                <input
+                  class="formInput form-control my-2"
+                  type="text"
+                  name="userName"
+                  id="userNameSi"
+                  placeholder="Enter your name"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <input
+                  class="formInput form-control my-2"
+                  type="email"
+                  name="userEmail"
+                  id="userEmailSi"
+                  placeholder="Enter your email"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <input
+                  class="formInput form-control my-2"
+                  type="password"
+                  name="userPassword"
+                  id="userPasswordSi"
+                  placeholder="Enter password"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="taken d-none">
+                <p class="text-danger text-center m-0 fs-5">Email is taken</p>
+              </div>
+              <div class="wrong d-none">
+                <p class="text-danger text-center m-0 fs-5">Input invalid</p>
+              </div>
+              <div class="right d-none">
+                <p class="text-success text-center m-0 fs-5">Account created</p>
+              </div>
+              <div>
+                <button id="SignUpBtn" class="btn mt-4 w-100">Sign Up</button>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center mt-4">
+            <p class="mb-0 me-2">You have an account?</p>
+            <a href="" id="signInAnchor" class="text-white">Signin</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+
+    <section id="loginSec" class="py-5 d-none">
+    <div class="container">
+      <form action="" class="w-75 m-auto p-5 shadow-lg">
+        <h1 class="text-center">Smart Login System</h1>
+        <div class="row">
+          
+          <div class="col-md-12">
+            <div>
+              <input class=" formInput form-control my-2" type="email" name="userEmailLi" id="userEmailLi" placeholder="Enter your email">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div>
+              <input class=" formInput form-control my-2" type="password" name="userPasswordLi" id="userPasswordLi" placeholder="Enter your password">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="loginWrong d-none">
+              <p class="text-danger text-center m-0">Invalid password or E-mail</p>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div>
+              <button id="LoginBtn" class="btn mt-4 w-100">Login</button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-4">
+          <p class="mb-0 me-2">Don’t have an account?</p><a href="" id="signUpAnchor" class="text-white">Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="p-3 position-relative vh-100 bg-black d-none" id="homeSec">
+    <div class="text-end">
+      <button id="logOutBtn" class="btn">Logout</button>
+    </div>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h1 id="WelcomeMsg">Welcome</h1>
+    </div>
+  </section>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/all.min.js"></script>
+  </body>
+</html>
