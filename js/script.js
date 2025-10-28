@@ -12,13 +12,15 @@ var userPasswordLi = document.querySelector("#userPasswordLi");
 // Buttons
 var SignUpBtn = document.querySelector("#SignUpBtn");
 var LoginBtn = document.querySelector("#LoginBtn");
-var logOutBtn = document.querySelector("#logOutBtn")
+var logOutBtn = document.querySelector("#logOutBtn");
 // Buttons
 
+//Alerts
 var worng = document.querySelector(".wrong");
 var right = document.querySelector(".right");
 var taken = document.querySelector(".taken");
-var loginWrong = document.querySelector(".loginWrong")
+var loginWrong = document.querySelector(".loginWrong");
+//Alerts
 
 //Sections
 var signUpSec = document.querySelector("#signUpSec");
@@ -26,11 +28,15 @@ var loginSec = document.querySelector("#loginSec");
 var homeSec = document.querySelector("#homeSec");
 //Sections
 
+//Anchor
 var signInAnchor = document.querySelector("#signInAnchor");
 var signUpAnchor = document.querySelector("#signUpAnchor");
+//Anchor
+
 var form = document.querySelectorAll("form");
 var WelcomeMsg = document.querySelector("#WelcomeMsg");
 var userData = [];
+
 if (localStorage.getItem("userInfo") == null) {
   userData = [];
 } else {
@@ -53,7 +59,8 @@ function addUserData() {
   if (
     validateName() == true &&
     validateEmail() == true &&
-    validatepassword() == true
+    validatepassword() == true &&
+    accTaken() != false
   ) {
     var data = {
       name: userNameSi.value,
@@ -62,24 +69,22 @@ function addUserData() {
     };
     userData.push(data);
     localStorage.setItem("userInfo", JSON.stringify(userData));
-    userNameSi.classList.remove("is-valid");
-    userNameSi.classList.remove("is-invalid");
-    userEmailSi.classList.remove("is-valid");
-    userEmailSi.classList.remove("is-invalid");
-    userPasswordSi.classList.remove("is-valid");
-    userPasswordSi.classList.remove("is-invalid");
+    taken.classList.add("d-none");
     right.classList.remove("d-none");
     worng.classList.add("d-none");
     clearData();
   } else {
-    worng.classList.remove("d-none");
     right.classList.add("d-none");
+    worng.classList.remove("d-none");
+    taken.classList.remove("d-none");
   }
 }
-SignUpBtn.addEventListener("click", addUserData);
+SignUpBtn.addEventListener("click", function () {
+  addUserData();
+});
 
 function validateName() {
-  var nameRegax = /^[A-Za-z]{3,20}$/;
+  var nameRegax = /^[a-zA-Z0-9_ ]{3,16}$/;
   if (nameRegax.test(userNameSi.value) == true) {
     userNameSi.classList.add("is-valid");
     userNameSi.classList.remove("is-invalid");
@@ -125,6 +130,12 @@ function clearData() {
   userNameSi.value = "";
   userPasswordSi.value = "";
   userEmailSi.value = "";
+  userNameSi.classList.remove("is-valid");
+  userNameSi.classList.remove("is-invalid");
+  userEmailSi.classList.remove("is-valid");
+  userEmailSi.classList.remove("is-invalid");
+  userPasswordSi.classList.remove("is-valid");
+  userPasswordSi.classList.remove("is-invalid");
 }
 function clearLoginData() {
   userPasswordLi.value = "";
@@ -141,17 +152,31 @@ function logIn() {
       console.log("login");
       homeSec.classList.remove("d-none");
       loginSec.classList.add("d-none");
-      loginWrong.classList.add("d-none")
+      loginWrong.classList.add("d-none");
       WelcomeMsg.innerHTML = `Welcome ${userData[i].name}`;
     } else {
-      loginWrong.classList.remove("d-none")
+      loginWrong.classList.remove("d-none");
     }
   }
 }
 LoginBtn.addEventListener("click", logIn);
-logOutBtn.addEventListener("click" , function () {
-  homeSec.classList.add("d-none")
-  loginSec.classList.remove("d-none")
-  signUpSec.classList.add("d-none")
-  clearLoginData()
-})
+logOutBtn.addEventListener("click", function () {
+  homeSec.classList.add("d-none");
+  loginSec.classList.remove("d-none");
+  signUpSec.classList.add("d-none");
+  loginWrong.classList.add("d-none");
+  clearLoginData();
+});
+
+function accTaken() {
+  for (var i = 0; i < userData.length; i++) {
+    // console.log(JSON.parse(localStorage.getItem("userInfo"))[i].name);
+    if (
+      JSON.parse(localStorage.getItem("userInfo"))[i].email == userEmailSi.value
+    ) {
+      console.log("taken");
+      // taken.classList.remove("d-none");
+      return false;
+    }
+  }
+}

@@ -16,8 +16,10 @@ a:hover {
   text-decoration: underline;
 }
 
-/* GFeneral style */
+/* General style */
 
+
+/* Inputs style */
 .formInput {
   color: #fff;
   background-color: transparent;
@@ -28,11 +30,11 @@ a:hover {
   color: #b6b6b6;
 }
 
-  .form-control:focus {
-    background-color: transparent;
-    box-shadow: none;
-    color: #fff;
-  }
+.form-control:focus {
+  background-color: transparent;
+  box-shadow: none;
+  color: #fff;
+}
 
 .btn {
   border: 1px solid #17a2b8;
@@ -41,3 +43,4 @@ a:hover {
 .btn:hover {
   background-color: #17a2b8;
 }
+/* Inputs style */

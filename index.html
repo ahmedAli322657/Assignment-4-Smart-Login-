@@ -76,49 +76,62 @@
       </div>
     </section>
 
-
     <section id="loginSec" class="py-5 d-none">
-    <div class="container">
-      <form action="" class="w-75 m-auto p-5 shadow-lg">
-        <h1 class="text-center">Smart Login System</h1>
-        <div class="row">
-          
-          <div class="col-md-12">
-            <div>
-              <input class=" formInput form-control my-2" type="email" name="userEmailLi" id="userEmailLi" placeholder="Enter your email">
+      <div class="container">
+        <form action="" class="w-75 m-auto p-5 shadow-lg">
+          <h1 class="text-center">Smart Login System</h1>
+          <div class="row">
+            <div class="col-md-12">
+              <div>
+                <input
+                  class="formInput form-control my-2"
+                  type="email"
+                  name="userEmailLi"
+                  id="userEmailLi"
+                  placeholder="Enter your email"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <input
+                  class="formInput form-control my-2"
+                  type="password"
+                  name="userPasswordLi"
+                  id="userPasswordLi"
+                  placeholder="Enter your password"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="loginWrong d-none">
+                <p class="text-danger text-center m-0">
+                  Invalid Password or E-mail
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <button id="LoginBtn" class="btn mt-4 w-100">Login</button>
+              </div>
             </div>
           </div>
-          <div class="col-md-12">
-            <div>
-              <input class=" formInput form-control my-2" type="password" name="userPasswordLi" id="userPasswordLi" placeholder="Enter your password">
-            </div>
+          <div class="d-flex justify-content-center align-items-center mt-4">
+            <p class="mb-0 me-2">Don’t have an account?</p>
+            <a href="" id="signUpAnchor" class="text-white">Sign Up</a>
           </div>
-          <div class="col-md-12">
-            <div class="loginWrong d-none">
-              <p class="text-danger text-center m-0">Invalid password or E-mail</p>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div>
-              <button id="LoginBtn" class="btn mt-4 w-100">Login</button>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center align-items-center mt-4">
-          <p class="mb-0 me-2">Don’t have an account?</p><a href="" id="signUpAnchor" class="text-white">Sign Up</a>
-        </div>
-      </form>
-    </div>
-  </section>
+        </form>
+      </div>
+    </section>
 
-  <section class="p-3 position-relative vh-100 bg-black d-none" id="homeSec">
-    <div class="text-end">
-      <button id="logOutBtn" class="btn">Logout</button>
-    </div>
-    <div class="position-absolute top-50 start-50 translate-middle">
-      <h1 id="WelcomeMsg">Welcome</h1>
-    </div>
-  </section>
+    <section id="homeSec" class="p-3 position-relative vh-100 bg-black d-none">
+      <div class="text-end">
+        <button id="logOutBtn" class="btn">Logout</button>
+      </div>
+      <div class="position-absolute top-50 start-50 translate-middle">
+        <h1 id="WelcomeMsg">Welcome</h1>
+      </div>
+    </section>
 
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
